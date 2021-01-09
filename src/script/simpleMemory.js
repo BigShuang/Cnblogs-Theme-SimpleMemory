@@ -403,25 +403,26 @@ function init() {
     $.ajaxSetup({cache: true});
 
     // load loadingJs
-    $.getScript(getJsDelivrUrl('loading.js'), function () {
+    // $.getScript(getJsDelivrUrl('loading.js'), function () {
 
-        // Loading start
-        window.cnblogsConfig.hook.beforeLoading(pageLoading);
-        pageLoading.initRebound();
-        pageLoading.initSpinner();
-        pageLoading.spinner.init(pageLoading.spring, true);
+    //     // Loading start
+    //     window.cnblogsConfig.hook.beforeLoading(pageLoading);
+    //     pageLoading.initRebound();
+    //     pageLoading.initSpinner();
+    //     pageLoading.spinner.init(pageLoading.spring, true);
 
-        $.getScript(getJsDelivrUrl('lib/jquery.mCustomScrollbar.min.js'), function () {
-            $.getScript(getJsDelivrUrl('lib/require.min.js'), function () {
-                $.getScript(getJsDelivrUrl('config.js'), function () {
-                    var staticResource = [
-                        // 'optiscroll', 'ToProgress', 'rotate',
-                        'optiscroll_ToProgress_rotate',
-                        'snapSvg', 'classie', 'main4', 'tools'];
-                    require(staticResource, function() {
-                        require(['base'], function() {
-                            (new Base).init();
-                        });
+    // });
+
+    $.getScript(getJsDelivrUrl('lib/jquery.mCustomScrollbar.min.js'), function () {
+        $.getScript(getJsDelivrUrl('lib/require.min.js'), function () {
+            $.getScript(getJsDelivrUrl('config.js'), function () {
+                var staticResource = [
+                    // 'optiscroll', 'ToProgress', 'rotate',
+                    'optiscroll_ToProgress_rotate',
+                    'snapSvg', 'classie', 'main4', 'tools'];
+                require(staticResource, function() {
+                    require(['base'], function() {
+                        (new Base).init();
                     });
                 });
             });
@@ -432,7 +433,10 @@ function init() {
 // get file url
 function getJsDelivrUrl(file, directory) {
     file = setFileNameMin(file, directory);
-    return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
+    // return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
+    return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'/' + (file ? file : '');
+
+
 }
 
 // optimization file name
