@@ -382,10 +382,10 @@ function Base() {
      */
     this.endLoading = function() {
         $('body').css('overflow', 'auto');
-        pageLoading.spinner.setComplete();
+        // pageLoading.spinner.setComplete();
         $('div#loading').hide();
         $('a[name="top"]').hide();
-        window.cnblogsConfig.hook.afterLoading(bndongJs, pageLoading);
+        // window.cnblogsConfig.hook.afterLoading(bndongJs, pageLoading);
     };
 
     /**
