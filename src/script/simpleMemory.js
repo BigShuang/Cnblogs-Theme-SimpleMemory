@@ -413,7 +413,7 @@ function init() {
 function getJsDelivrUrl(file, directory) {
     file = setFileNameMin(file, directory);
     // return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
-    return 'https://github.com/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'/' + (file ? file : '');
+    return 'https://github.com/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+ 'blob/master' +'/' + (file ? file : '');
 
 
 }
