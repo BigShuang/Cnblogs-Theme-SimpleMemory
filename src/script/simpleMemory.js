@@ -2,9 +2,9 @@
  * UPDATES AND DOCS AT: https://github.com/BNDong
  * https://www.cnblogs.com/bndong/
  * @author: BNDong, dbnuo@foxmail.com
+ * changed by: Big Shuang
  **/
 if (initCheck()) {
-
     var sidebarHtml =
         '<div class="container">' +
         '    <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">' +
