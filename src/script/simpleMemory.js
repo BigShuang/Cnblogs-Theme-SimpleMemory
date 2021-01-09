@@ -2,9 +2,9 @@
  * UPDATES AND DOCS AT: https://github.com/BNDong
  * https://www.cnblogs.com/bndong/
  * @author: BNDong, dbnuo@foxmail.com
- * changed by: Big Shuang
  **/
 if (initCheck()) {
+
     var sidebarHtml =
         '<div class="container">' +
         '    <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">' +
@@ -112,6 +112,27 @@ if (initCheck()) {
             color: '#77b6ff',
             height: '2px',
             duration: 0.2
+        },
+        loading: {
+            rebound: {
+                tension: 16,
+                friction: 5
+            },
+            spinner: {
+                id: 'spinner',
+                radius: 90,
+                sides: 3,
+                depth: 4,
+                colors: {
+                    background: '#f0f0f0',
+                    stroke: '#272633',
+                    base: null,
+                    child: '#272633'
+                },
+                alwaysForward: true,
+                restAt: 0.5,
+                renderBase: false
+            }
         },
         homeTopAnimationRendered: true,
         homeTopAnimation: {
@@ -382,26 +403,25 @@ function init() {
     $.ajaxSetup({cache: true});
 
     // load loadingJs
-    // $.getScript(getJsDelivrUrl('loading.js'), function () {
+    $.getScript(getJsDelivrUrl('loading.js'), function () {
 
-    //     // Loading start
-    //     window.cnblogsConfig.hook.beforeLoading(pageLoading);
-    //     pageLoading.initRebound();
-    //     pageLoading.initSpinner();
-    //     pageLoading.spinner.init(pageLoading.spring, true);
+        // Loading start
+        window.cnblogsConfig.hook.beforeLoading(pageLoading);
+        pageLoading.initRebound();
+        pageLoading.initSpinner();
+        pageLoading.spinner.init(pageLoading.spring, true);
 
-    // });
-
-    $.getScript(getJsDelivrUrl('lib/jquery.mCustomScrollbar.min.js'), function () {
-        $.getScript(getJsDelivrUrl('lib/require.min.js'), function () {
-            $.getScript(getJsDelivrUrl('config.js'), function () {
-                var staticResource = [
-                    // 'optiscroll', 'ToProgress', 'rotate',
-                    'optiscroll_ToProgress_rotate',
-                    'snapSvg', 'classie', 'main4', 'tools'];
-                require(staticResource, function() {
-                    require(['base'], function() {
-                        (new Base).init();
+        $.getScript(getJsDelivrUrl('lib/jquery.mCustomScrollbar.min.js'), function () {
+            $.getScript(getJsDelivrUrl('lib/require.min.js'), function () {
+                $.getScript(getJsDelivrUrl('config.js'), function () {
+                    var staticResource = [
+                        // 'optiscroll', 'ToProgress', 'rotate',
+                        'optiscroll_ToProgress_rotate',
+                        'snapSvg', 'classie', 'main4', 'tools'];
+                    require(staticResource, function() {
+                        require(['base'], function() {
+                            (new Base).init();
+                        });
                     });
                 });
             });
@@ -412,10 +432,7 @@ function init() {
 // get file url
 function getJsDelivrUrl(file, directory) {
     file = setFileNameMin(file, directory);
-    // return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
-    // return 'https://github.com/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+ 'blob/master' +'/' + (file ? file : '');
-    return 'https://raw.githubusercontent.com/BigShuang/Cnblogs-Theme-SimpleMemory/master/' + (file ? file : '');
-
+    return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
 }
 
 // optimization file name
