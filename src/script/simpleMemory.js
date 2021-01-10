@@ -78,6 +78,16 @@ if (initCheck()) {
         '            <h2 class="page-description" id="hitokoto"></h2>' +
         '            <h3 class="page-author" id="hitokotoAuthor"></h3>' +
         '            <h1 class="sb-title" id="sbTitle"></h1>' +
+        '           <h2 class="sb-desc" id="sbDesc">作者: <a href="https://www.cnblogs.com/BigShuang/">大爽歌</a></h2>' + 
+        '           <p class="sb-desc" id="sbDesc">' + 
+        '               <span class="article-info-tag article-tag-text-color">作者介绍: </span>' + 
+        '               <a href="https://space.bilibili.com/149259132" target="_blank">' + 
+        '                   <span class="article-info-tag article-tag-class-color">B站小UP主</span></a>' + 
+        '               <a href="https://live.bilibili.com/13337214" target="_blank">' + 
+        '                   <span class="article-info-tag article-tag-class-color">直播编程+红警三</span></a>' + 
+        '               <a href="https://www.bilibili.com/read/cv8288962" target="_blank">' + 
+        '                   <span class="article-info-tag article-tag-class-color">python1对1辅导老师</span></a>' + 
+        '               </p>' + 
         '            <p class="article-info" id="articleInfo"></p>' +
         '        </div>' +
         '    </div>' +

@@ -4233,3 +4233,35 @@ table#blogCalendar>tbody>tr>td>a {
         width: 15px;
     }
 }
+
+h2#sbDesc {
+    font-family: "Open Sans",sans-serif;
+    color: #fff;
+    text-shadow: 0 3px 6px rgba(0,0,0,.5);
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+h2#sbDesc a {
+    color: antiquewhite;
+}
+
+p#sbDesc {
+    margin-top: 1rem;
+
+    height: 22px;
+    line-height: 22px;
+    font-size: 22px;
+    color: #fff;
+    font-family: "Open Sans",sans-serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,.5);
+
+    text-transform: none;
+}
+
+
+p#sbDesc .article-info-tag.article-tag-text-color {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffd9b1;
+}
