@@ -912,7 +912,7 @@ function Base() {
             'background-size': 'cover'
         });
 
-        bndongJs.setHitokoto();
+        bndongJs.setHomeInfo();
         bndongJs.scrollMonitor();
         bndongJs.setDomHomePosition();
     };
@@ -985,99 +985,15 @@ function Base() {
     /**
      * 设置主页标语
      */
-    this.setHitokoto = function() {
+    this.setHomeInfo = function() {
+        info_tags = '<a href="https://space.bilibili.com/149259132" target="_blank">' + 
+        '<span class="article-info-tag article-tag-class-color homepage-info-tag">B站小UP主</span></a>' + 
+        '<a href="https://live.bilibili.com/13337214" target="_blank">' + 
+        '<span class="article-info-tag article-tag-class-color homepage-info-tag">直播编程+红警三</span></a>' + 
+        '<a href="https://www.bilibili.com/read/cv8288962" target="_blank">' + 
+        '<span class="article-info-tag article-tag-class-color homepage-info-tag">python1对1辅导老师</span></a>"'
 
-
-        // 判断用户是否自定义了设置
-        let homeBannerText = window.cnblogsConfig.homeBannerText,
-            hitokoto = $('#hitokoto');
-        if ($.isArray(homeBannerText) && homeBannerText.length > 0) {
-
-            let listIndex = tools.randomNum(0, homeBannerText.length - 1);
-            hitokoto.text(homeBannerText[listIndex]).css('display', '-webkit-box');
-            return true;
-
-        } else if (typeof homeBannerText === "string" && homeBannerText !== "") {
-
-            hitokoto.text(homeBannerText).css('display', '-webkit-box');
-            bndongJs.setDomHomePosition();
-            return true;
-        }
-
-        let topTitleList = [
-            '每一个不曾起舞的日子，都是对生命的辜负。',
-            '公主死去了，屠龙的少年还在燃烧',
-            '我们听过无数的道理，却仍旧过不好这一生。',
-            '生如夏花之绚烂，死如秋叶之静美。',
-            '但凡不能杀死你的，最终都会使你更强大。',
-            '好看的皮囊千篇一律，有趣的灵魂万里挑一。',
-            '青春是一本太仓促的书，我们含着泪，一读再读。',
-            '教育就是当一个人把在学校所学全部忘光之后剩下的东西。',
-            '孤独不是一种脾性，而是一种无奈。',
-            '有时候你以为天要塌下来了，其实是自己站歪了。',
-            '温柔正确的人总是难以生存，因为这世界既不温柔，也不正确。',
-            '死并非生的对立面，而作为生的一部分永存。',
-            '不要努力成为一个成功者，要努力成为一个有价值的人。',
-            '不要因为走得太远，忘了我们为什么出发。',
-            '你的问题主要在于读书不多而想得太多。',
-            '岁月不饶人，我亦未曾饶过岁月。',
-            '当你凝视深渊时，深渊也在凝视着你。',
-            '有的人25岁就死了，只是到75岁才埋葬'
-        ], settings = {};
-
-        switch (window.cnblogsConfig.homeBannerTextType) {
-            case "one": //  ONE . 每日一句
-                settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://sentence.iciba.com/index.php?callback=onecallback&c=dailysentence&m=getdetail&title=" + tools.getNowFormatDate(),
-                    "method": "POST",
-                    "dataType": 'jsonp',
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "data": {
-                        "TransCode": "030111",
-                        "OpenId": "123456789",
-                        "Body": ""
-                    }
-                };
-
-                $.ajax(settings).done(function (response) {
-                    if (response.errno === 0) {
-                        hitokoto.text(response.note).css('display', '-webkit-box');
-                        $('#hitokotoAuthor').text(response.content).show();
-                    } else {
-                        let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
-                    }
-                    bndongJs.setDomHomePosition();
-                    return false;
-                });
-                break;
-
-            case "jinrishici":
-            default: // 今日诗词
-                settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": "https://v2.jinrishici.com/one.json",
-                    "method": "GET"
-                };
-
-                $.ajax(settings).done(function (response) {
-                    if (response && response.status === "success") {
-                        hitokoto.text(response.data.content).css('display', '-webkit-box');
-                        $('#hitokotoAuthor').text('《'+response.data.origin.title+'》 - '+response.data.origin.dynasty+' - '+response.data.origin.author).show();
-                    } else {
-                        let listIndex = tools.randomNum(0, topTitleList.length - 1);
-                        hitokoto.text(topTitleList[listIndex]).css('display', '-webkit-box');
-                    }
-                    bndongJs.setDomHomePosition();
-                    return false;
-                });
-                break;
-        }
+        $('#hitokotoAuthor').text(info_tags)
     };
 
     /**
@@ -1119,6 +1035,20 @@ function Base() {
         // 设置随笔标题
         const sbTitle = $('#cb_post_title_url').text();
         $('#sbTitle').text(sbTitle);
+
+        const author_info = '作者: <a href="https://www.cnblogs.com/BigShuang/">大爽歌</a>'
+
+        const info_tag = '<span class="article-info-tag article-tag-text-color">作者介绍: </span>' + 
+        '<a href="https://space.bilibili.com/149259132" target="_blank">' + 
+        '   <span class="article-info-tag article-tag-class-color">B站小UP主</span></a>' + 
+        '<a href="https://live.bilibili.com/13337214" target="_blank">' + 
+        '   <span class="article-info-tag article-tag-class-color">直播编程+红警三</span></a>' + 
+        '<a href="https://www.bilibili.com/read/cv8288962" target="_blank">' + 
+        '   <span class="article-info-tag article-tag-class-color">python1对1辅导老师</span></a>'
+
+        $('#sbAuthor').text(author_info);
+        $('#sbDesc').text(info_tag);
+
         $('.inner').css('max-width', '100vw');
 
         // 设置文章信息
