@@ -993,7 +993,8 @@ function Base() {
         '<a href="https://www.bilibili.com/read/cv8288962" target="_blank">' + 
         '<span class="article-info-tag article-tag-class-color homepage-info-tag">python1对1辅导老师</span></a>"'
 
-        $('#hitokotoAuthor').text(info_tags)
+        $('#hitokotoAuthor').html(info_tags)
+        $('#hitokotoAuthor').css('display', 'block');
     };
 
     /**
@@ -1038,7 +1039,7 @@ function Base() {
 
         const author_info = '作者: <a href="https://www.cnblogs.com/BigShuang/">大爽歌</a>'
 
-        const info_tag = '<span class="article-info-tag article-tag-text-color">作者介绍: </span>' + 
+        const info_tags = '<span class="article-info-tag article-tag-text-color">作者介绍: </span>' + 
         '<a href="https://space.bilibili.com/149259132" target="_blank">' + 
         '   <span class="article-info-tag article-tag-class-color">B站小UP主</span></a>' + 
         '<a href="https://live.bilibili.com/13337214" target="_blank">' + 
@@ -1046,8 +1047,8 @@ function Base() {
         '<a href="https://www.bilibili.com/read/cv8288962" target="_blank">' + 
         '   <span class="article-info-tag article-tag-class-color">python1对1辅导老师</span></a>'
 
-        $('#sbAuthor').text(author_info);
-        $('#sbDesc').text(info_tag);
+        $('#sbAuthor').html(author_info);
+        $('#sbDesc').html(info_tags);
 
         $('.inner').css('max-width', '100vw');
 
