@@ -2407,12 +2407,12 @@ div#tbCommentBodyPreview {
 }
 
 #cnblogs_post_body h6, blockquote {
-    line-height: 20px;
+    line-height: 22px;
     margin: 0 0 24px;
-    padding: 1.45em;
+    padding: 18px;
     color: #313131;
     background-color: #f7f7f7;
-    font-size: 14px;
+    font-size: 16px;
     border-left: 4px solid #ddd;
     font-weight: 400;
     border-top: 0;
@@ -2664,7 +2664,7 @@ div#rightMenu > div {
     width: 100%!important;
     background-color: #fff;
     border: 1px solid #dfe3ec;
-    font-size: 14px;
+    font-size: 16px;
     color: #222;
     margin: 0 0 10px 0;
     padding: 0;
@@ -3044,7 +3044,7 @@ span.cnblogs_code {
     text-indent: 0!important;
     position: relative;
     bottom: 1px;
-    font-size: 13px !important;
+    font-size: 15px !important;
     font-weight: 600;
     font-family: "Ubuntu Mono", monospace !important;
 }

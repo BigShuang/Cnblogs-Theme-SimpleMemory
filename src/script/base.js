@@ -479,7 +479,7 @@ function Base() {
      */
     this.setDayNightControl = function () {
         let h = parseInt(new Date().getHours()),head = $('head'), cookieKey = 'cnblogs_config_isNight', exp  =  4 * 3600, daySwitch;
-
+        let hltheme = window.cnblogsConfig.essayCodeHighlighting.toLowerCase();
         switch (tools.getCookie(cookieKey)) {
             case 'day':
                 daySwitch = 'daySwitch'; break;
@@ -519,11 +519,17 @@ function Base() {
                 tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 head.append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+getJsDelivrUrl('base.dark.css')+'">');
+                
+                const href = 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'dark.min.css';
+                head.append('<link type="text/css" id="hl_dark_css" rel="stylesheet" href="'+href+'">');
             } else { // 日间
                 window.cnblogsConfig.hook.dayNightControl(bndongJs, 'day');
                 tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
+
+                const href = 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'light.min.css';
+                head.append('<link type="text/css" id="hl_light_css" rel="stylesheet" href="'+href+'">');
             }
         });
     };
@@ -1396,7 +1402,9 @@ function Base() {
 
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
-            tools.dynamicLoadingCss('https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'.min.css');
+            const href = 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'light.min.css';
+            head.append('<link type="text/css" id="hl_light_css" rel="stylesheet" href="'+href+'">');
+            
             require(['highlightjs'], function() {
                 let essayCodeLanguages = window.cnblogsConfig.essayCodeLanguages;
                 if (essayCodeLanguages && essayCodeLanguages.length > 0) {
