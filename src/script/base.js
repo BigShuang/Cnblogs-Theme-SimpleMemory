@@ -1403,7 +1403,7 @@ function Base() {
         // 使用 highlightjs 代码样式
         function highlightjsCode() {
             const href = 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/src/style/highlightjs/'+hltheme+'light.min.css';
-            head.append('<link type="text/css" id="hl_light_css" rel="stylesheet" href="'+href+'">');
+            $("head").append('<link type="text/css" id="hl_light_css" rel="stylesheet" href="'+href+'">');
             
             require(['highlightjs'], function() {
                 let essayCodeLanguages = window.cnblogsConfig.essayCodeLanguages;
