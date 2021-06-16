@@ -23,7 +23,7 @@ if (initCheck()) {
         '                </ul>' +
         '            </div>' +
         '            <!-- 优秀文集 -->' +
-        '            <div class="m-list-title"><span>优秀文集<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-list-title my-good-books"><span>优秀文集<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarGoodBooks"></div>' +
         '            <!-- 日历 -->' +
         '            <span id="calendar-box"></span>' +
@@ -401,14 +401,17 @@ function init() {
     $('#blog-news').prepend(sidebarHtml);
     $('#m-nav-list').append(navListHtml);
 
-    var myBooksHtml = ''
+    var myBooksHtml = '<ul>'
     var myGoodBooks = window.cnblogsConfig.myGoodBooks;
     if (myGoodBooks.length > 0) {
         $.each(myGoodBooks, function (i) {
             let iconClass = myGoodBooks[i].length > 2 ? myGoodBooks[i][2] : "icon-document_fill";
             myBooksHtml += '<li><a href="'+(myGoodBooks[i][1])+'" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(myGoodBooks[i][0])+'</a></li>';
         });
+        $('#my-good-books').css("display", "block")
     }
+    myBooksHtml += '</ul>'
+
     $('#sb-sidebarGoodBooks').append(myBooksHtml);
 
     // set userName
