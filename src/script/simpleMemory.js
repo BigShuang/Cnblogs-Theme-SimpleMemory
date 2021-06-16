@@ -23,7 +23,7 @@ if (initCheck()) {
         '                </ul>' +
         '            </div>' +
         '            <!-- 优秀文集 -->' +
-        '            <div class="m-list-title my-good-books"><span>优秀文集<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
+        '            <div class="m-list-title" id="my-good-books"><span>优秀文集<span class="iconfont icon-select m-list-title-select"></span></span></div>' +
         '            <div class="m-icon-list" id="sb-sidebarGoodBooks"></div>' +
         '            <!-- 日历 -->' +
         '            <span id="calendar-box"></span>' +
